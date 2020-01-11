@@ -5,13 +5,16 @@ import React from 'react';
 // } from "react-router-dom";
 
 import './App.scss';
-import Nav from './Components/nav/Nav'
+import Nav from './Components/nav/Nav';
+import Carousel from './Components/Carousel/Carousel';
+
 
 function App(){
   return (
     <>
       <Nav  />
-
+      
+      <Carousel></Carousel>
     </>
   )
 }
