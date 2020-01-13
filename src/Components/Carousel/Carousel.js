@@ -12,7 +12,7 @@ function CarouselComponent(){
     showThumbs={false}
     showStatus={false}
     centerSlidePercentage={20} 
-    emulateTouch
+    // emulateTouch
     infiniteLoop
   >
     <Product  />

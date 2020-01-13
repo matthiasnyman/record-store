@@ -10,12 +10,13 @@ const Home = () => {
         <img className="record-header" src={ recordImg } />
         {/* <h3 className="text-header">record</h3> */}
       </div>
+      <div className="splitter"><h4>Reconmended</h4></div>
       <Carousel></Carousel>
-      <br />
+      <div className="splitter"><h4>newcommers</h4></div>
       <Carousel></Carousel>
-      <br />
+      <div className="splitter"><h4>Sale</h4></div>
       <Carousel></Carousel>
-      <br />
+      <div className="splitter"><h4>Pop</h4></div>
       <Carousel></Carousel>
     </>
   )
