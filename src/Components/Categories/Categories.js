@@ -4,17 +4,17 @@ import './Categories.scss';
 const Categories = () => {
   return(
     <>
-      <h3>Categories</h3>
+      <h3 className="categories-header">Categories</h3>
       <div className='categories-container'>
-        <div><h4>pop</h4></div>
-        <div><h4>Rock</h4></div>
-        <div><h4>Hiphop</h4></div>
-        <div><h4>Raggae</h4></div>
-        <div><h4>punk</h4></div>
-        <div><h4>Blues</h4></div>
+        <div className="pop"><h4>pop</h4></div>
+        <div className="rock" ><h4>Rock</h4></div>
+        <div className="hiphop"><h4>Hiphop</h4></div>
+        <div className="raggae" ><h4>Raggae</h4></div>
+        <div className="punk"><h4>punk</h4></div>
+        <div className="blues"><h4>Blues</h4></div>
       </div>
 
-      <button>Year</button>
+      <div className="changeCategories"><h3>year</h3></div>
     </>
   )
 }
