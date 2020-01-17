@@ -1,20 +1,22 @@
 import React from 'react';
 import './Product.scss';
-import record from '../../images/mandoDiao.jpg';
 
-function Product(){
-    
+const Product = (props) => {
+  const { artist, album, image } = props.info
+  console.log(props.info);
+
   return (
-    <div className='product-area' onClick={ OpenProduct }>  
-      <img src={ record } alt='record'  />
-      <h3>album</h3>
-      <h3>Artist</h3>
+    <div onClick={moreInfo} className='product-area' >
+      <img alt={album} src={image} />
+      <h3>{artist}</h3>
+      <h4>{album}</h4>
     </div>
   )
 }
 
-const OpenProduct = () => {
-  console.log("Hej hallå");
+
+const moreInfo = () => {
+  console.log(this)
 }
 
 

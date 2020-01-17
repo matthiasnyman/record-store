@@ -38,7 +38,7 @@ function App() {
         </ul>
 
         <div className="cart">
-          <img src={cart} />
+          <img alt="Cart" src={cart} />
         </div>
       </nav>
       <Switch>

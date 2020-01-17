@@ -1,36 +1,79 @@
-import React from 'react';
-import './Home.scss'
-import Carousel from '../Carousel/Carousel';
-import recordImg from '../../images/recordImg.png';
+import React from "react";
+import "./Home.scss";
+import Carousel from "../Carousel/Carousel";
+import Loading from "../Loading/Loading";
+import recordImg from "../../images/recordImg.png";
 
-import { useSelector, useDispatch } from 'react-redux';
-import increment from '../../actions/home';
+class Home extends React.Component {
 
-import fetchProducts from '../../actions/LoadProducts';
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoaded: false,
+      records: []
+    };
+  }
 
-const Home = () => {
-  const counter = useSelector(state => state.counter);
-  const dispatch = useDispatch()
+  componentDidMount() {
+    const API_ADDRESS = "http://localhost:5001";
 
-  fetchProducts();
-  return(
-    <>
-      <div>
-        <img className="record-header" alt="Home image" src={ recordImg } />
-        {/* <h3 className="text-header">record</h3> */}
-        <h3 className="text-header">{counter}</h3>
-        <button onClick={() => dispatch(increment())}>+</button>
-        <button>-</button>
-      </div>
-      <div className="splitter"><h4>Reconmended</h4></div>
-      <Carousel></Carousel>
-      <div className="splitter"><h4>newcommers</h4></div>
-      <Carousel></Carousel>
-      <div className="splitter"><h4>Sale</h4></div>
-      <Carousel></Carousel>
-      <div className="splitter"><h4>Pop</h4></div>
-      <Carousel></Carousel>
-    </>
-  )
+    fetch(`${API_ADDRESS}/record`)
+      .then(response => {
+        if (response.status !== 200) {
+          throw new Error("Usuccessful request to api");
+        }
+        return response.json();
+      })
+      .then(result => {
+        this.setState({
+          isLoaded: true,
+          records: result
+        });
+      })
+
+      .catch(error => console.error(error));
+
+  }
+
+  render() {
+    const { error, isLoaded, records } = this.state;
+
+    if (error) {
+      return <div>Error: {error.message}</div>;
+
+    } else if (!isLoaded) {
+      return <Loading />;
+
+    } else {
+      return (
+        <>
+          <div>
+            <img className="record-header" alt="Home" src={recordImg} />
+          </div>
+
+          <div className="splitter">
+            <h4>Reconmended</h4>
+          </div>
+
+          <Carousel records = { records }  />
+
+          <div className="splitter">
+            <h4>Sale</h4>
+          </div>
+
+          <Carousel records = { records }  />
+
+          <div className="splitter">
+            <h4>pop</h4>
+          </div>
+
+          <Carousel records = { records }  />
+
+
+        </>
+      );
+    }
+  };
 }
+
 export default Home;
