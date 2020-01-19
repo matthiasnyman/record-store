@@ -15,8 +15,8 @@ nav {
   min-height: 40px;
   width: 100%;
 
-  background-color: #000000;
-  color: #f6f6f6;
+  background-color: var(--secondary-color);
+  color: var(--text-color);
 
   h3 {
     letter-spacing: 5px;
@@ -36,7 +36,7 @@ nav {
   width: 20%;
   margin: 0;
   padding: 0;
-  background-color: #000000;
+  background-color: var(--secondary-color);
 
   display: flex;
   flex-direction: column;
@@ -50,7 +50,7 @@ nav {
 
     a {
       text-decoration: none;
-      color: #f6f6f6;
+      color: var(--text-color);
       font-family: "Poppins", sans-serif;
       letter-spacing: 3px;
       font-weight: bold;
@@ -62,7 +62,7 @@ nav {
 
 .cart {
   img {
-    color: #f6f6f6;
+    color: var(--text-color);
   }
 }
 
@@ -72,7 +72,7 @@ nav {
     display: block;
     width: 25px;
     height: 3px;
-    background-color: #f6f6f6;
+    background-color: var(--text-color);
     margin: 5px;
   }
 }

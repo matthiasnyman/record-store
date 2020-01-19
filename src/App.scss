@@ -1,8 +1,16 @@
+:root{
+  --main-color: #1d1d1d;
+  --secondary-color: #090808;
+  --text-color: #f6f6f6;
+
+}
+
 body {
   margin: 0;
   padding: 0;
-  background-color: #1d1d1d;
+  background-color: var(--main-color);
 }
+
 
 
 .product-list{

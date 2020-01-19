@@ -9,6 +9,7 @@ import Home from "./Components/Home/Home";
 import Categories from "./Components/Categories/Categories"
 import Recomended from "./Components/Recomended/Recomended"
 import Sale from "./Components/Sale/Sale"
+import Product from "./Components/Product/Product";
 
 function App() {
   return (
@@ -51,6 +52,12 @@ function App() {
         <Route path="/sale">
           <Sale />
         </Route>
+        <Route path="/product">
+          <Product />
+        </Route>
+        {/* <Route path="*">
+          <NoMatch />
+        </Route> */}
         <Route path="/">
           <Home />
         </Route>
@@ -59,4 +66,26 @@ function App() {
     </Router>
   );
 }
+
+// const Child = () => {
+//   let { id } = useParams();
+
+//   return (
+//     <Product id={id} />
+//   );  
+
+// }
+
+function NoMatch() {
+
+  return (
+    <div>
+      <h3>
+        No match for URL
+      </h3>
+    </div>
+  );
+}
+
+
 export default App;
