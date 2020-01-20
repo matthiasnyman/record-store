@@ -17,14 +17,19 @@ nav {
 
   background-color: var(--secondary-color);
   color: var(--text-color);
-
-  h3 {
-    letter-spacing: 5px;
-    font-size: 22px;
-    text-transform: capitalize;
-    margin: 0;
-    padding: 0;
+  a{
+    text-decoration: none;
+    .record-rubrik {
+      margin: 0;
+      padding: 0;
+      color: var(--text-color);
+      letter-spacing: 5px;
+      font-size: 22px;
+      text-transform: capitalize;
+      text-decoration: none;
+    }
   }
+  
 }
 
 .nav-links {

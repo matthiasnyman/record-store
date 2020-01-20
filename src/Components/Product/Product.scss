@@ -1,4 +1,39 @@
-.hej{
-  margin: 200px;
+.Product-image{
+  margin: 10vh 0 0 0;
+  width: 100%;
+  
+}
+
+.addToCart{
+  background-color: #3E589D;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: var(--text-color);
+  text-transform: uppercase;
+  font-weight: 700;
+  
+  margin: auto;
+  width: 35%;
+  height: 40px;
+  max-width: 300px;
+}
+
+.describing-header{
+  color: var(--text-color);
+  text-align: center;
+}
+
+.describing-fild{
+  color: var(--text-color);
+  width: 80%;
+  max-width: 700px;
+  margin: auto;
+}
+
+.song-list{
+  color: var(--text-color);
+  list-style-type: decimal;
+  margin: auto;
 }

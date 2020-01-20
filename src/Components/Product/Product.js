@@ -1,24 +1,39 @@
 import React from 'react';
+import './Product.scss';
 
 const Product = () => {
   return (
     <>
-      <img alt="record" src="https://www.bengans.se/bilder/artiklar/liten/3837010_S.jpg"  />
-      <h2>120 kr</h2>
-      <h2>FAKTA</h2>
-      <p>hej hej</p>
+      <div>
+        <img 
+          className="Product-image"
+          alt="record" 
+          src="https://www.bengans.se/bilder/artiklar/liten/3837010_S.jpg"  
+        />
 
-      <h2>Låtar</h2>
+        <h1 className="describing-header">Album</h1>
+        <h2 className="describing-header">Artist</h2>
+        <h2 className="describing-header">120 kr</h2>
+        <div className="addToCart">Add to Cart</div>
 
-      <ul>
-        <li>1, hej</li>
-        <li>2, hur</li>
-        <li>3, Är</li>
-        <li>4, det</li>
-        <li>5, med</li>
-        <li>6, dig</li>
-        <li>7, är</li>
-        <li>8, du</li>
+      </div>
+
+
+
+      <h3 className="describing-header">FAKTA</h3>
+      <p className="describing-fild">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin odio libero, convallis eu mauris et, mollis vehicula dolor. Nullam dictum bibendum leo id luctus. Nunc porttitor semper tellus in congue. Pellentesque imperdiet diam vitae eleifend tincidunt. Duis a fermentum quam. Vivamus a egestas felis, ac aliquet nunc. Aenean ullamcorpe</p>
+
+      <h3 className="describing-header">Låtar</h3>
+
+      <ul className="song-list"> 
+        <li>hej</li>
+        <li>hur</li>
+        <li>Är</li>
+        <li>det</li>
+        <li>med</li>
+        <li>dig</li>
+        <li>är</li>
+        <li>du</li>
       </ul>
 
 

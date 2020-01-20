@@ -1,16 +1,18 @@
 import React from 'react';
 import './Product.scss';
+import { Link } from "react-router-dom";
+
 
 const Product = (props) => {
   const { id, artist, album, image } = props.info
   console.log(props.info);
 
   return (
-    <div onClick={() => moreInfo(id)} className='product-area' >
+    <Link to="/product" className='product-area' >
       <img alt={album} src={image} />
       <h3>{artist}</h3>
       <h4>{album}</h4>
-    </div>
+    </Link>
   )
 }
 
