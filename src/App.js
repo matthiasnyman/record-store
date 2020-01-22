@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.scss";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link, useParams } from "react-router-dom";
 import "./Components/nav/Nav.scss";
 import menuShow from "./Components/nav/Nav";
 import cart from "./images/Cart.svg";
@@ -12,6 +12,7 @@ import Sale from "./Components/Sale/Sale";
 import Product from "./Components/Product/Product";
 import Cart from './Components/Cart/Cart';
 import Admin from './Components/Admin/Admin';
+import CategorieList from './Components/CategorieList/CategorieList';
 
 function App() {
   return (
@@ -60,20 +61,23 @@ function App() {
         <Route path="/sale">
           <Sale />
         </Route>
-        <Route path="/product">
-          <Product />
+        <Route path="/product/:id">
+          <Child />
         </Route>
         <Route path="/cart">
           <Cart />
         </Route>
+        <Route path="/CategorieList/:id">
+          <CategorieChild />
+        </Route>
         <Route path="/admin">
           <Admin />
         </Route>
-        {/* <Route path="*">
-          <NoMatch />
-        </Route> */}
         <Route path="/">
           <Home />
+        </Route>
+        <Route path="*">
+          <NoMatch />
         </Route>
       </Switch>
 
@@ -81,29 +85,35 @@ function App() {
   );
 }
 
-const goToCart = () => {
 
+function Child() {
+
+  let { id } = useParams();
+
+  return (
+    <Product id={id}  />
+  );
 }
 
-// const Child = () => {
-//   let { id } = useParams();
+function CategorieChild() {
 
-//   return (
-//     <Product id={id} />
-//   );  
+  let { id } = useParams();
 
-// }
+  return (
+    <CategorieList id={id}  />
+  );
+}
 
-// function NoMatch() {
+function NoMatch() {
 
-//   return (
-//     <div>
-//       <h3>
-//         No match for URL
-//       </h3>
-//     </div>
-//   );
-// }
+  return (
+    <div>
+      <h3 className="error">
+        No match for URL!
+      </h3>
+    </div>
+  );
+}
 
 
 export default App;

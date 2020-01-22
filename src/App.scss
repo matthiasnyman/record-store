@@ -11,8 +11,12 @@ body {
   background-color: var(--main-color);
 }
 
-
-
 .product-list{
   display: flex;
+}
+
+.error{
+  margin: 30vh auto;
+  color: var(--text-color);
+  text-align: center;
 }
