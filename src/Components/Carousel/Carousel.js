@@ -11,6 +11,7 @@ const CarouselComponent = props => {
 
   return (
     <Carousel
+      className="hejda"
       centerMode
       swipeable={false}
       showIndicators={false}
