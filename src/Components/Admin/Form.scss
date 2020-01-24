@@ -1,0 +1,20 @@
+.form{
+  display: flex;
+  flex-direction: column;
+  color: var(--main-color);
+  text-align: center;
+  width: 300px;
+
+  background-color: rgb(167, 161, 161);
+
+  input{
+    width: 100px;
+    margin: 10px auto;
+  }
+  
+  textarea{
+    width: 200px;
+    margin: 10px auto;
+
+  }
+}

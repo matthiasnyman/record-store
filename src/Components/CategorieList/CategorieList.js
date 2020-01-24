@@ -16,8 +16,7 @@ class CategorieList extends React.Component{
   componentDidMount() {
     const API_ADDRESS = "http://localhost:5001";
     let Id = this.props.id;
-
-
+    
     fetch(`${API_ADDRESS}/Genre/${Id}`)
       .then(response => {
         if (response.status !== 200) {
@@ -39,10 +38,10 @@ class CategorieList extends React.Component{
   render(){
     const list = this.state.records.productsInGenre; 
     const array = [];
-
-    for(let key in list){
-
-      let product = list[key].record;
+    
+    for(let item in list){
+      
+      let product = list[item];
 
       let item = <ProductCard key={product.id} info = { product } />;
       array.push(item);
@@ -52,9 +51,9 @@ class CategorieList extends React.Component{
     return(
       <>
         <h1>Hello there!</h1>
+
         <div className="product-field">
           { array }
-
         </div>
       </>
     )

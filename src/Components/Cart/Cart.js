@@ -2,45 +2,30 @@ import React from "react";
 import "./Cart.scss";
 
 class Cart extends React.Component {
-  
   constructor(props) {
     super(props);
     this.state = {
-      Orders: []
+      Orders: [],
+      total: 0
     };
   }
+  componentDidMount() {
+    this.setState({
+      Orders: localStorage.getItem("myData")
+    });
+  }
 
-  handlePost = () => {
-    const API_ADDRESS = "http://localhost:5001";
-    let data = {
-      "cartId": 3,
-      "userId": 1
-    }
   
-    console.log('hej')
-  
-    fetch(`${API_ADDRESS}/order`, {
-      method: "POST",
-      body: JSON.stringify(data),
-      headers: {
-        "Content-Type": "application/json"
-      }
-    })
-      .then(res => {
-        return res;
-      })
-      .catch(err => err);
-  };
 
-  render(){
-    
+  render() {
+    console.log(this.state.Orders);
     return (
       <>
-        <h1 className="hej">Hej hallå </h1>
-        <button onClick={ this.handlePost }>Posta på mannen</button>
+        <h1 className="hej">{this.state.Orders} </h1>
+        <button onClick={this.handlePost}>Posta på mannen</button>
       </>
     );
   }
-};
+}
 
 export default Cart;

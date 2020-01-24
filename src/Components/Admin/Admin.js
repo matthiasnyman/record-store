@@ -1,6 +1,7 @@
 import React from 'react';
 import './Admin.scss';
-import NewRecord from './Product/NewRecord';
+import NewRecord from './RecordAdmin/NewRecord';
+import NewUser from './UserAdmin/createUser';
  
 
 class Admin extends React.Component {
@@ -33,11 +34,12 @@ class Admin extends React.Component {
 
   render() {
     const orders = this.state.Orders;
+    console.log(orders);
     return( 
       <div  className="admin">
-        { orders }
-
-        {/* <NewRecord  /> */}
+        <h1>Hej värden</h1>
+        <NewRecord  />
+        <NewUser  />
       </div>
     )
   }

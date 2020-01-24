@@ -37,6 +37,20 @@ class Product extends React.Component {
 
     const { artist, album, image, price } = this.state.info;
     
+    const addToCart = () => {
+      //Product
+      const data = JSON.stringify(this.state.info)
+      let products = [];
+      
+      if(localStorage.getItem('myData')){
+        products = [localStorage.getItem('myData')]
+      } 
+      products.push(data);
+
+      // console.log(data);
+      localStorage.setItem('myData', products);
+    }
+
     return (
       <>
         <div>
@@ -45,7 +59,7 @@ class Product extends React.Component {
           <h1 className="describing-header">{ album }</h1>
           <h2 className="describing-header">{ artist }</h2>
           <h2 className="describing-header">{ price } kr</h2>
-          <div className="addToCart">Add to Cart</div>
+          <div onClick= { addToCart } className="addToCart">Add to Cart</div>
         </div>
 
         <h3 className="describing-header">FAKTA</h3>
