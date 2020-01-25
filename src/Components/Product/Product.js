@@ -38,17 +38,18 @@ class Product extends React.Component {
     const { artist, album, image, price } = this.state.info;
     
     const addToCart = () => {
-      //Product
-      const data = JSON.stringify(this.state.info)
-      let products = [];
-      
-      if(localStorage.getItem('myData')){
-        products = [localStorage.getItem('myData')]
-      } 
-      products.push(data);
+      //variabler
+      const newProducts = this.state.info
+      let data = JSON.parse(localStorage.getItem('myData'));
+      let oldProducts = data ? JSON.parse(localStorage.getItem('myData')) : [];
 
-      // console.log(data);
-      localStorage.setItem('myData', products);
+      console.log('newproducts', newProducts)
+      console.log('oldproducts', oldProducts)
+      
+      oldProducts.push(newProducts);
+
+      //add and format data
+      localStorage.setItem('myData', JSON.stringify(oldProducts));
     }
 
     return (

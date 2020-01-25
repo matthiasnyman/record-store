@@ -9,7 +9,7 @@ const ProductCard = (props) => {
   
   const url = `/product/${id}`;
   return (
-    <Link to={ url } className='product-area' >
+    <Link to={ url } key={ id } className='product-area' >
       <img alt={ album } src={ image } />
       <h3>{ artist }</h3>
       <h4>{ album }</h4>

@@ -1,29 +1,44 @@
 import React from "react";
 import "./Cart.scss";
+import CartCard from "./CartCard";
 
 class Cart extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      Orders: [],
-      total: 0
+      Orders: []
     };
   }
   componentDidMount() {
     this.setState({
-      Orders: localStorage.getItem("myData")
+      Orders: JSON.parse(localStorage.getItem("myData"))
     });
   }
-
   
-
   render() {
-    console.log(this.state.Orders);
+    const list = this.state.Orders;
+    let array = []
+    let price = []
+
+    let i = 0;
+
+    list.forEach(item => {
+      i++;
+      price.push(item.price);
+      array.push(<CartCard key={i} data={ item } />)
+    });
+
+
     return (
-      <>
-        <h1 className="hej">{this.state.Orders} </h1>
-        <button onClick={this.handlePost}>Posta på mannen</button>
-      </>
+      <div className="cart-view">
+        <div className="cart-pruduct">
+          { array }
+        </div>
+        <div className="cart-checkout">
+          {price.reduce((a,b) => a + b, 0)}
+        <button onClick={this.handlePost}>Köp</button>
+        </div>
+      </div>
     );
   }
 }
