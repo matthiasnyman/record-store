@@ -32,9 +32,13 @@ class Cart extends React.Component {
     return (
       <div className="cart-view">
         <div className="cart-pruduct">
+          <h1 className="cart-header">Produkter</h1>
           { array }
         </div>
         <div className="cart-checkout">
+
+          <input  />
+
           {price.reduce((a,b) => a + b, 0)}
         <button onClick={this.handlePost}>Köp</button>
         </div>

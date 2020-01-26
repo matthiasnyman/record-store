@@ -37,29 +37,27 @@ class CategorieList extends React.Component{
 
   render(){
     const list = this.state.records.productsInGenre; 
-    const array = [];
+    console.log(list);
     
-    for(let item in list){
-      
-      let product = list[item];
+    let array = [];
+    
+    if(list){
 
-      let item = <ProductCard key={product.id} info = { product } />;
-      array.push(item);
+      for(let i=0; i < list.length; i++){
+        let item = list[i];
+        console.group(item)
+        array.push(<ProductCard key={item.id} info = { item } />)
+      };
     }
-    
-    
+
     return(
       <>
-        <h1>Hello there!</h1>
-
-        <div className="product-field">
-          { array }
-        </div>
-      </>
+      <div className="product-field">
+        { array }
+      </div>
+    </>
     )
   }
-
-
 }
 
 export default CategorieList;

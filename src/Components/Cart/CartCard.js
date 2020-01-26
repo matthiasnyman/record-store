@@ -6,10 +6,12 @@ const CartCard = props => {
   console.log(props)
   return(
     <div>
-      <h2>{album}</h2>
-      <h3>{artist}</h3>
-      <p>{price} kr</p>
       <img  src={image} />
+      <div>
+        <h2>{album}</h2>
+        <h3>{artist}</h3>
+        <p>{price} kr</p>
+      </div>
     </div>
   )
 }

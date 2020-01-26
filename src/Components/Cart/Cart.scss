@@ -1,13 +1,32 @@
 .cart-view {
   display: flex;
+  justify-content: space-evenly;
   margin:100px;
   color: white;
 }
 
 .cart-pruduct{
-  margin: 10%;
   width: 400px;
   background-color: gray;
+
+  h1{
+    text-align: center;
+  }
+
+  div{
+    display: flex;
+    border-bottom: 1px solid black;
+
+    img{
+      width: 40%;
+    }
+
+    div{
+      margin: auto;
+      flex-direction: column;
+      border: none;
+    }
+  }
 }
 
 .cart-checkout{
