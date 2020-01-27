@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 
 
 const ProductCard = (props) => {
-
-  const { id, artist, album, image } = props.info;
+  console.log(props.info.record);
+  const { id, artist, album, image } = props.info.record;
   
   const url = `/product/${id}`;
   return (

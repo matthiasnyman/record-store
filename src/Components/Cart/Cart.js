@@ -14,33 +14,32 @@ class Cart extends React.Component {
       Orders: JSON.parse(localStorage.getItem("myData"))
     });
   }
-  
+
   render() {
     const list = this.state.Orders;
-    let array = []
-    let price = []
-
+    let array = [];
+    let price = [];
     let i = 0;
 
-    list.forEach(item => {
-      i++;
-      price.push(item.price);
-      array.push(<CartCard key={i} data={ item } />)
-    });
-
+    if (list) {
+      list.forEach(item => {
+        i++;
+        price.push(item.price);
+        array.push(<CartCard key={i} data={item} />);
+      });
+    }
 
     return (
       <div className="cart-view">
         <div className="cart-pruduct">
           <h1 className="cart-header">Produkter</h1>
-          { array }
+          {array}
         </div>
         <div className="cart-checkout">
+          <input />
 
-          <input  />
-
-          {price.reduce((a,b) => a + b, 0)}
-        <button onClick={this.handlePost}>Köp</button>
+          {price.reduce((a, b) => a + b, 0)}
+          <button onClick={this.handlePost}>Köp</button>
         </div>
       </div>
     );

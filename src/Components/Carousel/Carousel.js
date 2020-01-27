@@ -5,8 +5,10 @@ import ProductCard from "../ProductCard/ProductCard";
 
 const CarouselComponent = props => {
 
+  const {id, record} = props.records;
+
   const records = props.records.map(
-    (record) => <ProductCard key={ record.id } info= { record.record } />
+    (record) => <ProductCard key={ id } info= { record } />
   );
 
   return (

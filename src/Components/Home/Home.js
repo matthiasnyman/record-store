@@ -36,7 +36,9 @@ class Home extends React.Component {
   }
 
   render() {
+
     const { error, isLoaded, records } = this.state;
+
     if (error) {
       return <div>Error: {error.message}</div>;
 
@@ -54,19 +56,19 @@ class Home extends React.Component {
             <h4>Reconmended</h4>
           </div>
 
-          <Carousel records = { records }  />
+          <Carousel id="1" records = { records }  />
 
           <div className="splitter">
             <h4>Sale</h4>
           </div>
 
-          <Carousel records = { records }  />
+          <Carousel id="2" records = { records }  />
 
           <div className="splitter">
             <h4>pop</h4>
           </div>
 
-          <Carousel records = { records }  />
+          <Carousel id="3" records = { records }  />
 
 
         </>

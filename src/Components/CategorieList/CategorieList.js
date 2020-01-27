@@ -46,14 +46,14 @@ class CategorieList extends React.Component{
       for(let i=0; i < list.length; i++){
         let item = list[i];
         console.group(item)
-        array.push(<ProductCard key={item.id} info = { item } />)
+        // array.push(<ProductCard key={item.id} info = { item } />)
       };
     }
 
     return(
       <>
       <div className="product-field">
-        { array }
+        {/* { array } */}
       </div>
     </>
     )
