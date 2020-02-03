@@ -3,10 +3,9 @@ import React from 'react';
 const CartCard = props => {
 
   const { album, artist, price, image } = props.data;
-  console.log(props)
   return(
     <div>
-      <img  src={image} />
+      <img alt="product" src={image} />
       <div>
         <h2>{album}</h2>
         <h3>{artist}</h3>

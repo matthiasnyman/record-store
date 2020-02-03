@@ -56,19 +56,19 @@ class Home extends React.Component {
             <h4>Reconmended</h4>
           </div>
 
-          <Carousel id="1" records = { records }  />
+          <Carousel  records = { records }  />
 
           <div className="splitter">
             <h4>Sale</h4>
           </div>
 
-          <Carousel id="2" records = { records }  />
+          <Carousel records = { records }  />
 
           <div className="splitter">
             <h4>pop</h4>
           </div>
 
-          <Carousel id="3" records = { records }  />
+          <Carousel records = { records }  />
 
 
         </>

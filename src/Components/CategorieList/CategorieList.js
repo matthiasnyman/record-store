@@ -37,7 +37,6 @@ class CategorieList extends React.Component{
 
   render(){
     const list = this.state.records.productsInGenre; 
-    console.log(list);
     
     let array = [];
     
@@ -45,15 +44,15 @@ class CategorieList extends React.Component{
 
       for(let i=0; i < list.length; i++){
         let item = list[i];
-        console.group(item)
-        // array.push(<ProductCard key={item.id} info = { item } />)
+        // console.log('item', item)
+        array.push(<ProductCard key={item.id} info = { item.record } />)
       };
     }
 
     return(
       <>
       <div className="product-field">
-        {/* { array } */}
+        { array }
       </div>
     </>
     )

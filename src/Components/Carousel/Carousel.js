@@ -5,15 +5,19 @@ import ProductCard from "../ProductCard/ProductCard";
 
 const CarouselComponent = props => {
 
-  const {id, record} = props.records;
+  const list = props.records; 
+  let array = [];
+    
+  if(list){
 
-  const records = props.records.map(
-    (record) => <ProductCard key={ id } info= { record } />
-  );
+    for(let i=0; i < list.length; i++){
+      let item = list[i];
+      array.push(<ProductCard key={item.id} info = { item } />)
+    };
+  }
 
   return (
     <Carousel
-      className="hejda"
       centerMode
       swipeable={false}
       showIndicators={false}
@@ -22,7 +26,7 @@ const CarouselComponent = props => {
       centerSlidePercentage={20}
       infiniteLoop
     >
-      { records }
+      { array }
 
     </Carousel>
   );

@@ -2,6 +2,7 @@ import React from 'react';
 import './Admin.scss';
 import NewRecord from './RecordAdmin/NewRecord';
 import NewUser from './UserAdmin/createUser';
+import OrderList from './Orders/Orders';
  
 
 class Admin extends React.Component {
@@ -40,6 +41,8 @@ class Admin extends React.Component {
         <h1>Hej värden</h1>
         <NewRecord  />
         <NewUser  />
+
+        <OrderList orders={orders}  />
       </div>
     )
   }
