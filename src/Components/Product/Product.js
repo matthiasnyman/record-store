@@ -35,16 +35,13 @@ class Product extends React.Component {
 
   render() {
 
-    const { artist, album, image, price } = this.state.info;
+    const { artist, album, image, price, info } = this.state.info;
     
     const addToCart = () => {
       //variabler
       const newProducts = this.state.info
       let data = JSON.parse(localStorage.getItem('myData'));
       let oldProducts = data ? JSON.parse(localStorage.getItem('myData')) : [];
-
-      console.log('newproducts', newProducts)
-      console.log('oldproducts', oldProducts)
       
       oldProducts.push(newProducts);
 
@@ -53,38 +50,39 @@ class Product extends React.Component {
     }
 
     return (
-      <>
-        <div>
-          <img className="Product-image" alt="record" src={ image } />
+      <div className="Product">
+        <img className="Product-image" alt="record" src={ image } />
 
+        <div className="Headers">
           <h1 className="describing-header">{ album }</h1>
           <h2 className="describing-header">{ artist }</h2>
+        </div>
+
+        <div className="pay">
           <h2 className="describing-header">{ price } kr</h2>
           <div onClick= { addToCart } className="addToCart">Add to Cart</div>
         </div>
 
-        <h3 className="describing-header">FAKTA</h3>
-        <p className="describing-fild">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin odio
-          libero, convallis eu mauris et, mollis vehicula dolor. Nullam dictum
-          bibendum leo id luctus. Nunc porttitor semper tellus in congue.
-          Pellentesque imperdiet diam vitae eleifend tincidunt. Duis a fermentum
-          quam. Vivamus a egestas felis, ac aliquet nunc. Aenean ullamcorpe
-        </p>
-
-        <h3 className="describing-header">Låtar</h3>
-
-        <ul className="song-list">
-          <li>hej</li>
-          <li>hur</li>
-          <li>Är</li>
-          <li>det</li>
-          <li>med</li>
-          <li>dig</li>
-          <li>är</li>
-          <li>du</li>
-        </ul>
-      </>
+        <div className="info-container">
+          <h3 className="describing-header">FAKTA</h3>
+          <p className="describing-fild">
+            { info }
+          </p>
+        </div>
+        <div className="song-list-container">
+          <h3 className="describing-header">Låtar</h3>  
+          <ul className="song-list">
+            <li>hej</li>
+            <li>hur</li>
+            <li>Är</li>
+            <li>det</li>
+            <li>med</li>
+            <li>dig</li>
+            <li>är</li>
+            <li>du</li>
+          </ul>
+        </div>
+      </div>
     );
   }
 }

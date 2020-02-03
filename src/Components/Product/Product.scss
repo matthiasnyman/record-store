@@ -1,39 +1,75 @@
-.Product-image{
-  margin: 10vh 0 0 0;
-  width: 100%;
-  
-}
+.Product {
+  display: grid;
+  // grid-template-rows: 40px auto 40px;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-areas:
+    "i i i i i i i i i i i i"
+    ". . d d d d d d d d . ."
+    ". . b b b b b b b b . ."
+    ". . p p p p p p p p . ."
+    ". . s s s s s s s s . .";
 
-.addToCart{
-  background-color: #3E589D;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: var(--text-color);
-  text-transform: uppercase;
-  font-weight: 700;
-  
-  margin: auto;
-  width: 35%;
-  height: 40px;
-  max-width: 300px;
-}
-
-.describing-header{
+    //Grid för dator
+    @media (min-width: 900px) {
+      
+      grid-template-areas:
+      ". . . . d d d d . . . ."
+      ". . i i i i b b b b . ."
+      ". . i i i i p p p p . ."
+      ". . s s s s s s s s . .";
+    }
+    
+  }
+.describing-header {
   color: var(--text-color);
   text-align: center;
+  margin: .5em;
 }
 
-.describing-fild{
+
+
+.Product-image {
+  grid-area: i;
+  width: 100%;
+  margin: 7vh 0 0 0;
+}
+
+.Headers {
+  grid-area: d;
   color: var(--text-color);
-  width: 80%;
+  // width: 80%;
   max-width: 700px;
-  margin: auto;
+  margin: 1em;
 }
 
-.song-list{
+.pay {
+  grid-area: b;
+  .addToCart {
+    background-color: #3e589d;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-color);
+    text-transform: uppercase;
+    font-weight: 700;
+
+    margin: auto;
+    // width: 35%;
+    height: 40px;
+    max-width: 300px;
+  }
+}
+.info-container{
+  grid-area: p;
+
+  color: var(--text-color);
+
+}
+
+.song-list-container{
+  grid-area: s;
+
   color: var(--text-color);
   list-style-type: decimal;
-  margin: auto;
 }
