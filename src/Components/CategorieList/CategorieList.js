@@ -1,6 +1,7 @@
 import React from 'react';
 import './CategorieList.scss';
 import ProductCard from '../ProductCard/ProductCard';
+import Loading from '../Loading/Loading';
 
 
 class CategorieList extends React.Component{
@@ -37,6 +38,7 @@ class CategorieList extends React.Component{
 
   render(){
     const list = this.state.records.productsInGenre; 
+    const { error, isLoaded }= this.state;
     
     let array = [];
     
@@ -49,14 +51,21 @@ class CategorieList extends React.Component{
       };
     }
 
+    if (error) {
+      return <div>Error: {error.message}</div>;
+    } else if (!isLoaded) {
+      return <Loading />;
+    } else {
     return(
       <>
-      <div className="product-field">
-        { array }
-      </div>
-    </>
+        <div className="product-field">
+          { array }
+        </div>
+      </>
     )
+    }
   }
+
 }
 
 export default CategorieList;

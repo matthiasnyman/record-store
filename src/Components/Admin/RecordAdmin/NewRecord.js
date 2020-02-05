@@ -10,6 +10,7 @@ class NewRecord extends React.Component {
       image: "https://www.bengans.se/bilder/artiklar/liten/2572243_S.jpg",
       price: 0,
       sale: 0.0,
+      id: 0,
       info: "skivan fins i lager"
     };
 

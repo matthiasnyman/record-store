@@ -7,11 +7,15 @@ class Cart extends React.Component {
     super(props);
     this.state = {
       Orders: [],
-      user: 8
+      id: 8,
+      firstName: "",
+      LastName: "",
+      email: ""
     };
+
+    this.handleChange = this.handleChange.bind(this);
     this.postRecord = this.postRecord.bind(this);
     this.clearCart = this.clearCart.bind(this);
-
   }
 
   componentDidMount() {
@@ -20,21 +24,24 @@ class Cart extends React.Component {
     });
   }
 
+  handleChange(event) {
+    this.setState({ user: event.target.value });
+  }
+
   clearCart() {
     localStorage.clear();
     this.setState({
       Orders: []
-    })
+    });
   }
 
   postRecord() {
     const { Orders, user } = this.state;
     if (Orders) {
-
       const API_ADDRESS = "http://localhost:5001";
 
-      let products = []
-      Orders.forEach( item => products.push({recordId: item.id}) )
+      let products = [];
+      Orders.forEach(item => products.push({ recordId: item.id }));
 
       let data = {
         cart: products,
@@ -51,7 +58,9 @@ class Cart extends React.Component {
         .then(() => {
           localStorage.clear("myData");
         })
-        .then(() => {  this.setState({Orders: []})   })
+        .then(() => {
+          this.setState({ Orders: [] });
+        })
         .catch(err => err);
     }
   }
@@ -71,21 +80,32 @@ class Cart extends React.Component {
     }
 
     return (
-      <>
-        <div className="cart-view">
-          <div className="cart-pruduct">
-            <h1 className="cart-header">Produkter</h1>
-            {array}
-          </div>
-          <div className="cart-checkout">
-            <input />
-
-            {price.reduce((a, b) => a + b, 0)}
-            <button onClick={this.postRecord}>Köp</button>
-          </div>
+      <div className="cart-view">
+        <div className="cart-pruduct">
+          <h1 className="cart-header">Produkter</h1>
+          {array}
+          <button onClick={this.clearCart}>Clear cart</button>
         </div>
-        <button  onClick={this.clearCart}>Clear cart</button>
-      </>
+
+        <div className="cart-checkout">
+          <label className="form" onSubmit={this.handleSubmit}>
+            <label>First name</label>
+            <input type="text" name="firstName" onChange={this.handleChange} />
+
+            <label>Last name</label>
+            <input type="text" name="lasrName" onChange={this.handleChange} />
+
+            <label>Email</label>
+            <input type="text" name="email" onChange={this.handleChange} />
+
+            <label>Id</label>
+            <input type="numver" name="id" onChange={this.handleChange} />
+
+            <input type="submit" value="Submit" onClick={this.postRecord} />
+          </label>
+          {price.reduce((a, b) => a + b, 0)}
+        </div>
+      </div>
     );
   }
 }

@@ -10,16 +10,18 @@
     ". . s s s s s s s s . .";
 
     //Grid för dator
-    @media (min-width: 900px) {
-      
-      grid-template-areas:
-      ". . . . d d d d . . . ."
-      ". . i i i i b b b b . ."
-      ". . i i i i p p p p . ."
-      ". . s s s s s s s s . .";
-    }
+  @media (min-width: 900px) {
     
+    grid-template-areas:
+    ". . . . d d d d . . . ."
+    ". . i i i i b b b b . ."
+    ". . i i i i p p p p . ."
+    ". . s s s s s s s s . .";
   }
+  
+  margin-top: 10vh;
+    
+}
 .describing-header {
   color: var(--text-color);
   text-align: center;
@@ -58,6 +60,10 @@
     // width: 35%;
     height: 40px;
     max-width: 300px;
+  }
+
+  .sale{
+    color: red;
   }
 }
 .info-container{

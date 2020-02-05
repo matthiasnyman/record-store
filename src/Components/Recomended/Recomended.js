@@ -47,7 +47,7 @@ class Recomended extends React.Component {
     }
     return(
       <>
-        <h3 class="recommeded-header">Recomended</h3>
+        <h3 class="recommeded-header">Recommended</h3>
 
         <div className="product-field">
           {array}

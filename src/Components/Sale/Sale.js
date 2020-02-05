@@ -1,6 +1,5 @@
 import React from 'react';
 import ProductCard from '../ProductCard/ProductCard';
-// import './Recommended.scss';
 
 class Recomended extends React.Component {
   constructor(props) {

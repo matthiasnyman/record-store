@@ -1,6 +1,12 @@
 import React from "react";
 import "./App.scss";
-import { BrowserRouter as Router, Switch, Route, Link, useParams } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useParams
+} from "react-router-dom";
 import "./Components/nav/Nav.scss";
 import menuShow from "./Components/nav/Nav";
 import cart from "./images/Cart.svg";
@@ -10,13 +16,14 @@ import Categories from "./Components/Categories/Categories";
 import Recomended from "./Components/Recomended/Recomended";
 import Sale from "./Components/Sale/Sale";
 import Product from "./Components/Product/Product";
-import Cart from './Components/Cart/Cart';
-import Admin from './Components/Admin/Admin';
-import CategorieList from './Components/CategorieList/CategorieList';
+import Cart from "./Components/Cart/Cart";
+import Admin from "./Components/Admin/Admin";
+import CategorieList from "./Components/CategorieList/CategorieList";
+import User from "./Components/User/User";
 
 function App() {
   return (
-    <Router >
+    <Router>
       <nav>
         <div onClick={menuShow} id="burger">
           <div className="line1"></div>
@@ -25,7 +32,7 @@ function App() {
         </div>
 
         <Link to="/">
-          <h3 className='record-rubrik'>RECORDS</h3>
+          <h3 className="record-rubrik">RECORDS</h3>
         </Link>
 
         <ul onClick={menuShow} className="nav-links">
@@ -42,14 +49,13 @@ function App() {
             <Link to="/sale">sale</Link>
           </li>
           <li>
-            <Link to="/cart">cart</Link>
+            <Link to="/user">User</Link>
           </li>
         </ul>
 
         <Link to="/cart" className="cart">
-          <img alt="Cart" src={cart}  />
+          <img alt="Cart" src={cart} />
         </Link>
-        
       </nav>
       <Switch>
         <Route path="/categories">
@@ -63,6 +69,9 @@ function App() {
         </Route>
         <Route path="/product/:id">
           <Child />
+        </Route>
+        <Route path="/user">
+          <User />
         </Route>
         <Route path="/cart">
           <Cart />
@@ -80,40 +89,28 @@ function App() {
           <NoMatch />
         </Route>
       </Switch>
-
     </Router>
   );
 }
 
-
 function Child() {
-
   let { id } = useParams();
 
-  return (
-    <Product id={id}  />
-  );
+  return <Product id={id} />;
 }
 
 function CategorieChild() {
-
   let { id } = useParams();
 
-  return (
-    <CategorieList id={id}  />
-  );
+  return <CategorieList id={id} />;
 }
 
 function NoMatch() {
-
   return (
     <div>
-      <h3 className="error">
-        No match for URL!
-      </h3>
+      <h3 className="error">No match for URL!</h3>
     </div>
   );
 }
-
 
 export default App;

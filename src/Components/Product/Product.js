@@ -5,7 +5,6 @@ class Product extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-
       isLoaded: true,
       info: []
     };
@@ -35,8 +34,8 @@ class Product extends React.Component {
 
   render() {
 
-    const { artist, album, image, price, info } = this.state.info;
-    
+    const { artist, album, image, price, info, sale } = this.state.info;
+    console.log(sale);
     const addToCart = () => {
       //variabler
       const newProducts = this.state.info
@@ -59,7 +58,9 @@ class Product extends React.Component {
         </div>
 
         <div className="pay">
-          <h2 className="describing-header">{ price } kr</h2>
+          {sale == 0.0 ? <h2 className="describing-header">{ price } kr</h2>:
+            <h2 className="describing-header sale">{ price * (1 - sale) } kr <small>ordinarie pris: {price}</small></h2>
+          }
           <div onClick= { addToCart } className="addToCart">Add to Cart</div>
         </div>
 

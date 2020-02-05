@@ -13,8 +13,8 @@ const ProductCard = (props) => {
       <img alt={ album } src={ image } />
       <div className="overlay">
         <h2>{ artist }</h2>
-        <h2>{ album }</h2>  
-        <a class="info" href="#">link here</a>
+        <h2>{ album }{ id }</h2>  
+        <a className="info" href="#">link here</a>
       </div>
     </Link>
   )

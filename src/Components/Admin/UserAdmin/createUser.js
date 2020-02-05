@@ -14,6 +14,7 @@ class NewUser extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+
   handleChange (evt) {
     this.setState({ [evt.target.name]: evt.target.value });
   }
